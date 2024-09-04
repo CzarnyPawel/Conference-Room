@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>Dostępność sal konferencyjnych</title>
+</head>
+<body>
+<div class="card">
+    <header class="logo">
+        <img src="{% static 'photo/logo1.png' %}" alt="Logo aplikacji" class="logo1">
+        <div>
+            <h1 class="title">Nowa jakość konferencji</h1>
+        </div>
+    </header>
+    <section class="info">
+        <div>
+            <div class="button1"><a href="{% url 'all-rooms' %}" class="text1">Lista sal</a></div>
+            <br>
+
+            <div class="button2"><a href="{% url 'new' %}" class="text2">Dodaj salę</a></div>
+        </div>
+
+        <div class="info1">
+            <h3 class="title1">Wyszukaj i Zarezerwuj</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <p>
+                    <label for="room_name">Nazwa sali</label>&nbsp;&nbsp;
+                    <input name="name" id="room_name" type="text">
+                </p>
+                <p>
+                    <label for="capacity">Liczba osób</label>
+                    <input name="capacity" id="capacity" type="number">
+                </p>
+                <p>
+                    <label for="projector_av"> Projektor</label>
+                    <input type="checkbox" id="projector_av" name="projector">
+                </p>
+                <p>
+                    <input type="submit" value="Wyszukaj">
+                </p></form>
+                <hr>
+
+                <h3 class="title1">Wszystkie sale</h3>
+            {% if rooms %}
+                <table class="table">
+
+                        <thead>
+                        <tr>
+                            <th>Nazwa</th>
+                            <th>Pojemność</th>
+                            <th>Rzutnik</th>
+                            <th>Zajetość</th>
+                            <th>Edycja</th>
+                            <th>Usunięcie</th>
+                            <th>Rezerwacja</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for room in rooms %}
+                        <tr>
+                            <td><a href="/room/details/{{ room.id }}"> {{ room.name }}</a></td>
+                            <td>{{ room.capacity }}</td>
+                            <td>{% if room.projector %} Tak {% else %} Nie {% endif %}</td>
+                            <td>{% if room.reserved %}<strong>Zajęta</strong> {% else %}<strong>Wolna</strong>{% endif %}</td>
+                            <td><a href="/room/modify/{{ room.id }}">Edytuj</a></td>
+                            <td><a href="/room/delete/{{ room.id }}">Usuń</a></td>
+                            <td><a href="/room/reserve/{{ room.id }}">Zarezerwuj</a></td>
+
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+            Brak wolnych sal
+            {% endif %}
+        </div>
+
+    </section>
+    <div class="contact">
+        <img src="{% static 'photo/author.png' %}" alt="logo autora" class="photo-main">
+        Created by Vinyl
+
+    </div>
+</div>
+</body>
+</html>

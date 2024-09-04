@@ -1,0 +1,161 @@
+html, body {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+body {
+    color=rgb(52, 58, 64)
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 960px;
+}
+
+.title {
+    color: rgb(256, 256, 256);
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    padding: 15px;
+    letter-spacing: 1.5px;
+}
+
+.logo {
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    height: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    }
+
+.logo1 {
+    width: 180px;
+    height: 100px;
+    margin-right: 15px;
+    }
+
+.button1 {
+    border: 1px solid;
+    padding: 20px;
+    width: 100px;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    border-radius: 10px;
+    background: rgb(0, 0, 0);
+    box-shadow: 4px 4px 15px rgb(0, 0, 0);  
+}
+.text1 {
+    text-decoration: none;
+    color: rgb(256, 256, 256);
+    margin: 10px;
+}
+
+.button2 {
+    border: 1px solid;
+    padding: 20px;
+    text-decoration: none;
+    width: 100px;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 10px;
+    background: rgb(0, 0, 0);
+    box-shadow: 4px 4px 15px rgb(0, 0, 0);  
+}
+
+.text2 {
+    text-decoration: none;
+    color: rgb(256, 256, 256);
+}
+
+p {
+    font-family: sans-serif;
+}
+
+.attention {
+    color: red;
+}
+.title1 {
+    font-family: sans-serif;
+    letter-spacing: 1.5px;
+}
+
+.info-photo {
+    width: 50%;
+    padding-left: 25px;
+}
+
+.info1 {
+    padding-left: 70px;
+    width: 50%;
+}
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 35px;
+    padding-bottom: 20px;
+
+    
+}
+.contact {
+    background: rgb(6, 6, 7);
+    display: flex;
+    justify-content: flex-start;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: rgb(256, 256, 256);
+}
+.mail {
+    color:rgb(13, 15, 86);
+    background: rgb(189, 189, 208);
+    font-weight: 700;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.photo-mail {
+    width: 25px;
+    padding-right: 5px;
+    padding-top: 5px;
+    
+}
+.photo-main {
+    width: 25px;
+    padding-right: 5px;
+    padding-top: 5px;
+    
+}
+
+.label {
+    margin-right: 15px;
+}
+
+.table {
+	border-collapse: collapse;
+  	width: 100%;
+  	}
+
+.table th,
+.table td {
+  	text-align: justify;
+  	padding: 10px;
+	}
+
+.table tr:nth-child(even) {
+  	background-color: #D6EEEE;
+	}

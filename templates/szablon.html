@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Rezerwacja sal konferencyjnych</title>
+</head>
+<body>
+<div class="card">
+    <header class="logo">
+        <img src="{% static 'photo/logo1.png' %}" alt="Logo aplikacji" class="logo1">
+        <div>
+            <h1 class="title">Mądry wybór</h1>
+        </div>
+    </header>
+    <section class="info">
+        <div>
+            <div class="button1"><a href="{% url 'all_movies' %}" class="text1">Lista sal</a></div><br>
+
+            <div class="button2"><a href="{% url 'persons' %}" class="text2">Dodaj salę</a></div>
+        </div>
+
+        <div class ="info1">
+            <h3 class="title1">Osoby</h3>
+
+            {% for person in persons %}
+                <p>{{ person }} <a href="/edit-person/{{ person.id }}">Edytuj</a>
+                <a href="/del-person/{{ person.id }}">Usuń</a>
+                </p>
+            {% endfor %}
+            <a href="/add-person/">Dodaj nową osobę</a>
+
+        </div>
+
+    </section>
+    <div class = "contact">
+            <img src="photo/author.png" alt="logo autora" class = "photo-main">
+
+
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>Szczegóły wybranej sali</title>
+</head>
+<body>
+<div class="card">
+    <header class="logo">
+        <img src="{% static 'photo/logo1.png' %}" alt="Logo aplikacji" class="logo1">
+        <div>
+            <h1 class="title">Nowa jakość konferencji</h1>
+        </div>
+    </header>
+    <section class="info">
+        <div>
+            <div class="button1"><a href="{% url 'all-rooms' %}" class="text1">Lista sal</a></div><br>
+
+            <div class="button2"><a href="{% url 'new' %}" class="text2">Dodaj salę</a></div>
+        </div>
+
+        <div class ="info1">
+            <h3 class="title1">Szczegóły sali: {{ details.name }}</h3>
+
+            <p>
+                Nazwa sali:<strong>{{ details.name }}</strong><br> Pojemność sali: <strong>{{ details.capacity }}</strong>
+                <br>Dostępność rzutnika: <strong>{% if details.projector %} Tak {% else %} Nie {% endif %}</strong></p>
+            <p>
+            <table class="table">
+            <thead>
+            <tr>
+            <th>Data rezerwacji</th>
+            <th>Komentarz do rezerwacji</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.comment }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            </p>
+        <hr>
+            <p><a href="/room/modify/{{ details.id }}">Edytuj</a>&nbsp<a href="/room/delete/{{ details.id }}">Usuń</a>
+                &nbsp<a href="/room/reserve/{{ details.id }}">Zarezerwuj</a>
+            </p>
+
+        </div>
+
+    </section>
+    <div class = "contact">
+            <img src="{% static 'photo/author.png' %}" alt="logo autora" class = "photo-main">
+        Created by Vinyl
+
+        </div>
+</div>
+</body>
+</html>
